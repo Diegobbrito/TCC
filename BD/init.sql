@@ -20,8 +20,14 @@ CREATE table vants(
 
 # Criação da tabela de comunicação, onde teremos separação por categoria de acordo com o que o
 # a aeronave vai executar
-CREATE table comandos(
-	id_comando integer primary key auto_increment,
-	categoria_comando varchar(200),
-	nome_comando varchar(200)
+CREATE table mensagens(
+	codigo_msg integer primary key auto_increment,
+	id_categoria_msg integer,
+	mensagem varchar(200),
+	FOREIGN KEY (id_categoria_msg) references categorias(id_categoria)
+);
+
+CREATE TABLE categorias(
+	id_categoria integer PRIMARY KEY auto_increment,
+	nome_categoria varchar(200)
 );
