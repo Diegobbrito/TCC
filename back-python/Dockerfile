@@ -1,11 +1,12 @@
 FROM python:3.8-alpine
 
-
 WORKDIR /app
+
+ENV FLASK_APP=rota_vant.py
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./rota_vant.py" ]
+CMD [ "flask", "run" ]
